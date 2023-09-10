@@ -1,0 +1,33 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define YYSTYPE char*
+int yylex(void);
+void yyerror(char*);
+%}
+
+%token A B NL
+
+%%
+start: S NL{ printf("Valid!\n"); exit(0);} 
+|
+;
+S: A S B
+|
+;
+%%
+
+void yyerror(char *s) {
+	printf("Invalid!\n");
+	exit(0);
+}
+
+int main() {
+	printf("Enter the string: ");
+	yyparse();
+	return 0;
+}
+
+
+
