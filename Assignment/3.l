@@ -8,9 +8,9 @@ el (([0-9]+[a-zA-Z_]+)+|[0-9]+|([0-9]+?[\*\%\$\#\@\!\~\`\'\"\;\.\,\;\(\)\[\]\{\}
 p ("#")
 
 %%
-{rule} {count++; printf("%s is an identifier! +1 (%d)", yytext, count);}
-{p} {printf("Total identifier so far: %d", count);}
-{el} {printf("%s is not an identifier.\nTotal identifier so far: %d", yytext, count);};
+{rule} {count++; printf("✅ %s is an identifier! +1 (%d)", yytext, count);}
+{p} {printf("👉 Total identifier so far: %d", count);}
+{el} {printf("❌ %s is not an identifier.\n👉 Total identifier so far: %d", yytext, count);};
 %%
 
 int yywrap(){
